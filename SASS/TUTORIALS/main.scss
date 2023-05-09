@@ -1,0 +1,93 @@
+// Variables in scsss
+// Partials in scss
+@import "profile";
+$primary-color:red;
+$secondary-color:green;
+$bg-color: #2c3e50;
+$hover-color:#16a085;
+$text-color:#ffffff;
+
+h1{
+    color: $primary-color;
+}
+
+p{
+    color: $secondary-color;
+}
+
+// Nesting in Scss
+nav{
+    ul{
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: $bg-color;
+
+    }
+
+    li {
+        display: inline-block;
+        
+    }
+
+    a{
+        display: inline-block;
+        text-decoration: none;
+        color: $text-color;
+        padding: 10px 16px;
+    }
+    a:hover{
+        background-color: $hover-color;
+    }
+}
+// mixin  and include
+@mixin border-radius($radius){
+    border-radius: $radius;
+}
+
+// extend
+.panel{
+    border: 3px solid saddlebrown;
+    margin: 10px;
+    background-color: $bg-color
+}
+
+.little-panel{
+    @include border-radius(5px);
+    @extend .panel;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.big-panel{
+    @include border-radius(20px);
+    @extend .panel;
+    padding: 20px;
+    font-size: 32px;
+}
+
+// Operetions
+$buttonBackground:#ff9090;
+$buttonColor:#dedede;
+$buttonPadding: 5px;
+
+.button{
+    background-color: $buttonBackground;
+    color: $buttonColor;
+    padding: $buttonPadding;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 8px;
+
+}
+
+.jumbo-button{
+    @extend .button;
+    padding: $buttonPadding + 30;
+}
+
+.light-button{
+    @extend .button;
+    // background-color: $buttonBackground * 0.9;
+}
